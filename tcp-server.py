@@ -20,5 +20,5 @@ while 1:
     currentTime = " " + "new server2 !!! " + time.ctime(time.time()) + "\r\n"
     print(data.decode('utf-8'))
     data = data + currentTime.encode('ascii')
-    conn.send(data)     #echo
+    conn.send(data)  #echo
     conn.close()
