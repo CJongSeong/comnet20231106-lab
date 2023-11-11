@@ -10,7 +10,6 @@ while 1:
     text = input('Write to Server : ').strip()
     print("Sending data :", text)
     s.sendall(text.encode('utf-8'))
-    print("123")
     data = s.recv(1024)
     data = data.decode('utf-8')
     print("Data from server :", data)
