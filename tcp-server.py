@@ -12,12 +12,15 @@ s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind((IP_ADDR, TCP_PORT))
 s.listen(1)
 
+conn, addr = s.accept()
+print('Client address: ', addr)
 while 1:
-    conn, addr = s.accept()
-    print('Client address: ', addr)
     data = conn.recv(BUFFER_SIZE)
     #if not data: break
+    if(data.decode('utf-8')=='exit'):
+        break
     currentTime = " " + "new server! " + time.ctime(time.time()) + "\r\n"
     print(data.decode('utf-8'))
     data = data + currentTime.encode('ascii')
     conn.send(data)  #echo
+conn.close()
