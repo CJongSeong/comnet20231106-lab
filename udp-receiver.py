@@ -9,5 +9,5 @@ sock.bind((UDP_IP, UDP_PORT))
 print("UDP Server started")
 while True:
     data, addr = sock.recvfrom(1024)
-    print("received message : ", data.decode('utf8'), " from ", addr)
+    print("received message: ", data.decode('utf8'), " from ", addr)
     sock.sendto(data, addr)
