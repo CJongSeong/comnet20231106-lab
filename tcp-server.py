@@ -16,9 +16,10 @@ while 1:
     conn, addr = s.accept()
     print('Client address: ', addr)
     data = conn.recv(BUFFER_SIZE)
+    if (data.decode('utf-8') == "exit"):
+        conn.close()
     #if not data: break
     currentTime = " " + "new server! " + time.ctime(time.time()) + "\r\n"
     print(data.decode('utf-8'))
     data = data + currentTime.encode('ascii')
     conn.send(data)  #echo
-    conn.close()
