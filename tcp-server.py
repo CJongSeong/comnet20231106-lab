@@ -19,7 +19,7 @@ while 1:
     #if not data: break
     if(data.decode('utf-8')=='exit'):
         break
-    currentTime = " " + "new server3 !! " + time.ctime(time.time()) + "\r\n"
+    currentTime = " " + "new server2 !! " + time.ctime(time.time()) + "\r\n"
     print(data.decode('utf-8'))
     data = data + currentTime.encode('ascii')
     conn.send(data)  #echo
